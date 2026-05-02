@@ -4,13 +4,13 @@ CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
 BLUE='\033[0;34m'; MAGENTA='\033[0;35m'; WHITE='\033[1;37m'
 DIM='\033[2m'
 
-SCRIPT2_URL="https://installer.cloudwavebd.com/main.sh"
+SCRIPT2_URL="https://raw.githubusercontent.com/youngkmd/Windows_INSTALLER/refs/heads/main/main.sh"
 
 clear
 echo -e "${BOLD}${CYAN}"
 echo "╔══════════════════════════════════════════════╗"
 echo "║      Windows Installer for KVM VPS           ║"
-echo "║      CloudWave Hosting | cloudwavebd.com     ║"
+echo "║                                              ║"
 echo "╚══════════════════════════════════════════════╝"
 echo -e "${NC}"
 
