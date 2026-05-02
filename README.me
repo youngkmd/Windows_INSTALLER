@@ -1,73 +1,99 @@
 # 🪟 KADER Windows Installer
 
-![Banner](https://dummyimage.com/1200x300/0d1117/ffffff&text=KADER+Windows+Installer)
-
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-commercial-orange)
-![Platform](https://img.shields.io/badge/platform-KVM%20VPS-green)
-![Status](https://img.shields.io/badge/status-active-success)
-
----
-
 ## 📖 Overview
-KADER Windows Installer is a license-based tool that installs Windows on any KVM VPS in 10–30 minutes with RDP ready out of the box.
 
----
+KADER Windows Installer is a license-based tool that installs Windows on
+any KVM-based Linux VPS in 10--30 minutes.\
+It downloads a pre-configured Windows disk image, writes it to your VPS
+root disk, and reboots into Windows with RDP enabled and ready to
+connect.
+
+------------------------------------------------------------------------
 
 ## ⚡ Features
-- KVM VPS support (Hetzner, Vultr, Contabo, etc.)
-- Windows 7 / 10 / 11 / Server editions
-- ARM64 support
-- Pre-enabled RDP (3389)
-- Fast installation (10–30 min)
 
----
+-   Works on any KVM VPS (Hetzner, Contabo, DigitalOcean, Vultr, Linode,
+    OVH, and more)
+-   Supports x86_64 and ARM64 processors
+-   7 Windows versions available
+-   RDP pre-enabled on port 3389
+-   License credits never expire
+-   OpenVZ is not supported
+-   Fast installation (10--30 minutes)
+
+------------------------------------------------------------------------
 
 ## 🚀 Quick Start
 
-```bash
+### 1. Buy a License Key
+
+https://installer.cloudwavebd.com
+
+### 2. SSH Into Your VPS
+
 ssh root@YOUR_VPS_IP
-curl -o ~/kader.sh https://raw.githubusercontent.com/youngkmd/Freedom/refs/heads/main/installer.sh
-chmod +x ~/kader.sh
+
+### 3. Run Installer
+
+curl -o \~/kader.sh
+https://raw.githubusercontent.com/youngkmd/Freedom/refs/heads/main/installer.sh
+chmod +x \~/kader.sh ln -sf \~/kader.sh /usr/local/bin/k
+
+### 4. Start
+
 k
-```
 
----
+------------------------------------------------------------------------
 
-## 🖥️ RDP Access
-- Host: YOUR_VPS_IP:3389  
-- User: Administrator  
-- Pass: Teddysun.com  
+## 🖥️ RDP
 
-⚠️ Change password immediately:
-```cmd
-net user Administrator YourNewStrongPassword
-```
+Host: YOUR_VPS_IP:3389\
+Username: Administrator\
+Password: Teddysun.com
 
----
+Change password: net user Administrator YourNewStrongPassword
 
-## ☁️ Supported Providers
-Hetzner, Vultr, Linode, OVH, Contabo, DigitalOcean
+------------------------------------------------------------------------
 
----
+## 🪟 Windows Versions
+
+-   Windows 11
+-   Windows 10
+-   Windows 7
+-   Windows Server 2025
+-   Windows Server 2022
+-   Windows Server 2019
+-   Windows 11 ARM
+
+------------------------------------------------------------------------
+
+## ☁️ VPS Support
+
+Hetzner, Vultr, Linode, Contabo, DigitalOcean, OVH, etc.\
+❌ OpenVZ not supported
+
+------------------------------------------------------------------------
 
 ## 📋 Requirements
-- KVM virtualization
-- 2GB RAM minimum
-- 30GB disk minimum
-- Root SSH access
 
----
+-   KVM VPS
+-   2GB RAM minimum
+-   30GB disk minimum
+-   Root SSH access
+
+------------------------------------------------------------------------
 
 ## 🔒 Security
-- Change default password immediately
-- Restrict RDP access via firewall
 
----
+Change default password immediately.\
+RDP port 3389 should be restricted.
+
+------------------------------------------------------------------------
 
 ## 🆘 Support
+
 Telegram: @isMathias
 
----
+------------------------------------------------------------------------
 
 © 2026 KADER Installer
