@@ -1,117 +1,26 @@
- KVM · Linux VPS → Windows · RDP ready
-CloudWave Windows Installer
-License-based tool that installs Windows on any KVM-based Linux VPS in 10–30 minutes. Pre-configured disk image, automatic reboot, and RDP enabled.
+# 🪟 CloudWave Windows Installer
 
-Get installer script
-Full docs (soon)
-Telegram Support
-Works on any KVM VPS
-Hetzner, Contabo, DigitalOcean, Vultr, Linode, OVH, Hostinger, ARM64 included. x86_64 & ARM64
+> **Install Windows on any KVM-based Linux VPS in 10–30 minutes**
+> 
+> License-based tool with pre-configured disk image, automatic reboot, and RDP enabled.
 
-7 Windows editions
-Windows 11, 10, 7, Server 2025/2022/2019, plus Windows 11 ARM for ARM-based instances.
+---
 
-RDP on port 3389
-Remote Desktop pre-enabled. Connect within minutes. Change default password instantly.
+## ✨ Key Features
 
-License credits never expire
-From $1 for 10 installs. No subscription, no IP locking. One credit = one installation.
+| Feature | Benefit |
+|---------|---------|
+| ⚡ **10–30 min installation** | Pre-configured disk image with automatic setup |
+| 🌍 **Universal KVM support** | Works on Hetzner, Vultr, Linode, DigitalOcean, Contabo, OVH, Hostinger, and more |
+| 🪟 **7 Windows editions** | Windows 11, 10, 7, Server 2025/2022/2019, Windows 11 ARM |
+| 🔒 **RDP ready** | Remote Desktop pre-enabled on port 3389 |
+| 💰 **Affordable & flexible** | From $1 for 10 installs—no subscription, credits never expire |
+| 🏗️ **Multiple architectures** | x86_64 & ARM64 support |
 
- ⚡ Quick Start (run on your VPS as root)
+---
 
-      # 1. SSH into your VPS
+## 🚀 Quick Start
 
-      ssh root@YOUR_VPS_IP
-
-
-      # 2. Download & prepare the installer
-
-      curl -o ~/kader.sh https://raw.githubusercontent.com/youngkmd/Freedom/refs/heads/main/installer.sh
-
-      chmod +x ~/kader.sh
-
-      ln -sf ~/kader.sh /usr/local/bin/k
-
-
-      # 3. Launch the installer
-
-      k
-    
-Follow interactive prompts: enter license key, select Windows version (41-47), type YES to confirm. After 10–30 min, your VPS reboots into Windows with RDP ready.
-
- Default RDP credentials
-Host: YOUR_VPS_IP:3389  |  Username: Administrator  |  Password: Teddysun.com
-⚠️ Important: Change password immediately after login:
-net user Administrator YourNewStrongPassword
- 🪟 Supported Windows versions
-Option	Version	Architecture	Notes
-41	Windows 11	x86_64	Modern desktop
-42	Windows 10	x86_64	Stable, wide compatibility
-43	Windows 7	x86_64	Legacy software support
-44	Windows Server 2025	x86_64	Latest server OS
-45	Windows Server 2022	x86_64	Recommended for servers
-46	Windows Server 2019	x86_64	Proven LTS edition
-47	Windows 11 ARM	ARM64	ARM-based KVM VPS only
- Windows is installed in evaluation mode (fully functional, activation watermark visible). A valid Microsoft license key required for full activation — not included.
-
- 💳 Pricing — Credits never expire
-Starter 10 installs – $1
-Basic 30 installs – $3
-Pro ⭐ 50 installs – $5
-Agency 100 installs – $10
-✅ No subscription · Credits never expire · Use one key across multiple servers.
-🔑 Buy at installer.cloudwavebd.com
-
- 📋 Requirements
-Virtualization: KVM (OpenVZ not supported)
-Architecture: x86_64 or ARM64
-Disk: 30 GB min (50 GB+ recommended)
-RAM: 2 GB min (4 GB+ for desktop editions)
-OS: Any Linux distribution
-Root SSH access & internet (~4–8 GB download)
- 🖥️ Compatible VPS Providers (KVM only)
-Hetzner Cloud
-Vultr
-Linode/Akamai
-Contabo
-DigitalOcean
-OVHcloud
-Hostinger VPS
-UpCloud
-Kamatera
-Scaleway
-IONOS
- 🖥️ First login — VNC Notice (Contabo / DigitalOcean)
-On some providers, RDP won't work immediately. Open VNC/console from control panel, login as Administrator / Teddysun.com. A network configuration script runs in background (~60 sec). After that, RDP is available. One‑time step only.
- Most providers work without VNC intervention, but if RDP fails after reboot — use the VNC method above.
-
- 📟 Installation walkthrough (example)
-
-      $ k
-
-      Enter your License Key: CWBD-XXXX-XXXX-XXXX
-
-      [OK] License valid — 9 install(s) remaining
-
-
-      Select Windows version to install:
-
-        41) Windows 11      42) Windows 10
-
-        43) Windows 7       44) Windows Server 2025
-
-        45) Windows Server 2022      46) Windows Server 2019
-
-        47) Windows 11 ARM
-
-      Enter choice [41-47]: 45
-
-
-      [WARNING] This will install Windows Server 2022 on this server.
-
-      [WARNING] ALL existing data will be LOST.
-
-      [WARNING] 1 install credit will be used.
-
-      Type YES to confirm and start installation: YES
-    
+### 1️⃣ SSH into your VPS
+```bash
+ssh root@YOUR_VPS_IP
