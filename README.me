@@ -1,106 +1,200 @@
-# 🪟 KADER Windows Installer
+# 🪟 CloudWave Windows Installer
 
-> Install Windows on any KVM Linux VPS in under 30 minutes --- fully
-> automated, no ISO, no VNC complexity.
+> Install Windows on any KVM Linux VPS with a single SSH command — no VNC, no ISO mounting, fully automatic.
 
+[![Website](https://img.shields.io/badge/Website-installer.cloudwavebd.com-4e4feb?style=flat-square)](https://installer.cloudwavebd.com)
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=flat-square)](https://cloudwavebd.com/terms-conditions/)
+[![Supported OS](https://img.shields.io/badge/Windows-7%20%7C%2010%20%7C%2011%20%7C%20Server-blue?style=flat-square&logo=windows)](https://installer.cloudwavebd.com#os-support)
+[![Architecture](https://img.shields.io/badge/Arch-x86__64%20%7C%20ARM64-orange?style=flat-square)](https://installer.cloudwavebd.com)
 
-------------------------------------------------------------------------
+---
 
 ## 📖 Overview
 
-KADER Windows Installer is a license-based automation tool that installs
-Windows on any KVM-based VPS within 10--30 minutes.
+**CloudWave Windows Installer** is a license-based tool that installs Windows on any KVM-based Linux VPS in 10–30 minutes. It downloads a pre-configured Windows disk image, writes it to your VPS root disk, and reboots into Windows — with RDP enabled and ready to connect.
 
-It automatically: - Downloads a pre-configured Windows image - Writes it
-to the VPS root disk - Configures RDP access - Reboots directly into
-Windows
+- ✅ Works on any KVM VPS (Hetzner, Contabo, DigitalOcean, Vultr, Linode, OVH, and more)
+- ✅ Supports x86_64 and ARM64 processors
+- ✅ 7 Windows versions available
+- ✅ RDP pre-enabled on port 3389
+- ✅ License credits never expire
+- ❌ OpenVZ is **not** supported
 
-------------------------------------------------------------------------
+---
 
-## ⚡ Features
+## ⚡ Quick Start
 
--   Works on any KVM VPS (Hetzner, Contabo, DigitalOcean, Vultr, Linode,
-    OVH, etc.)
--   Supports x86_64 and ARM64
--   7 Windows versions available
--   RDP pre-enabled (port 3389)
--   Fast installation (10--30 minutes)
--   OpenVZ not supported
+### 1. Buy a License Key
 
-------------------------------------------------------------------------
+Purchase install credits at **[installer.cloudwavebd.com](https://installer.cloudwavebd.com/#pricing)** — starting from $1 for 10 installs.
 
-## 🚀 Quick Start
+### 2. SSH Into Your VPS
 
-### SSH into VPS
-
-``` bash
+```bash
 ssh root@YOUR_VPS_IP
 ```
 
-### Install Tool
+### 3. Run the Installer
 
-``` bash
-curl -o ~/kader.sh https://raw.githubusercontent.com/youngkmd/Freedom/refs/heads/main/installer.sh
-chmod +x ~/kader.sh
-ln -sf ~/kader.sh /usr/local/bin/k
+```bash
+wget -qO- https://installer.cloudwavebd.com/install.sh | sed 's/\r//' > /dev/shm/install.sh && bash /dev/shm/install.sh
 ```
 
-### Run
+### 4. Follow the Prompts
 
-``` bash
-k
+```
+Enter your License Key: CWBD-XXXX-XXXX-XXXX
+
+[OK] License valid — 9 install(s) remaining
+
+Select Windows version to install:
+
+  41) Windows 11               42) Windows 10
+  43) Windows 7                44) Windows Server 2025
+  45) Windows Server 2022      46) Windows Server 2019
+  47) Windows 11 ARM
+
+Enter choice [41-47]: 45
+
+[WARNING] This will install Windows Server 2022 on this server.
+[WARNING] ALL existing data will be LOST.
+[WARNING] 1 install credit will be used.
+
+Type YES to confirm and start installation: YES
 ```
 
-------------------------------------------------------------------------
+### 5. Connect via RDP
 
-## 🖥️ RDP Access
+After 10–30 minutes your VPS reboots into Windows. Connect via Remote Desktop:
 
--   Host: YOUR_VPS_IP:3389\
--   Username: Administrator\
--   Password: Teddysun.com
+| Field    | Value           |
+|----------|-----------------|
+| Host     | `YOUR_VPS_IP:3389` |
+| Username | `Administrator` |
+| Password | `Teddysun.com`  |
 
-Change password:
+> ⚠️ **Change the default password immediately** after first login:
+> ```
+> net user Administrator YourNewStrongPassword
+> ```
 
-``` bash
-net user Administrator YourStrongPassword
-```
+---
 
-------------------------------------------------------------------------
+## 🪟 Supported Windows Versions
 
-## 🪟 Windows Versions
+| Option | Version | Architecture | Notes |
+|--------|---------|--------------|-------|
+| `41` | Windows 11 | x86_64 | Modern desktop |
+| `42` | Windows 10 | x86_64 | Stable, wide compatibility |
+| `43` | Windows 7 | x86_64 | Legacy software support |
+| `44` | Windows Server 2025 | x86_64 | Latest server OS |
+| `45` | Windows Server 2022 | x86_64 | Recommended for servers |
+| `46` | Windows Server 2019 | x86_64 | Proven LTS edition |
+| `47` | Windows 11 ARM | ARM64 | ARM-based KVM VPS only |
 
--   Windows 11\
--   Windows 10\
--   Windows 7\
--   Windows Server 2025\
--   Windows Server 2022\
--   Windows Server 2019\
--   Windows 11 ARM
+> Windows is installed in **evaluation mode** (fully functional, activation watermark visible). A valid Microsoft license key is required for full activation — not included.
 
-------------------------------------------------------------------------
+---
 
-## ☁️ Requirements
+## 🖥️ Compatible VPS Providers
 
--   KVM VPS only
--   2GB RAM minimum
--   30GB disk minimum
--   Root SSH access
--   Internet connection
+Any KVM-based VPS works. Tested providers include:
 
-------------------------------------------------------------------------
+| Provider | VNC Required (First Login) | Notes |
+|----------|---------------------------|-------|
+| **Hetzner Cloud** | Usually not required | Excellent compatibility |
+| **Vultr** | Usually not required | Fast network speeds |
+| **Linode / Akamai** | Usually not required | |
+| **Contabo** | ✅ Required | First VNC login triggers network auto-setup |
+| **DigitalOcean** | ✅ Required | First VNC login triggers network auto-setup |
+| **OVHcloud** | May be required | Depends on instance type |
+| **Hostinger VPS** | Usually not required | |
+| **UpCloud / Kamatera / Scaleway / IONOS** | Usually not required | |
 
-## 🔒 Security
+> ❌ **OpenVZ is not supported.** KVM virtualization is required.
 
--   Change default password immediately
--   Restrict RDP port 3389
--   Use strong credentials
+---
 
-------------------------------------------------------------------------
+## 🖥️ First Login — VNC Notice
+
+On some providers (Contabo, DigitalOcean), RDP won't work immediately after installation. You need to do a **one-time VNC login** first:
+
+1. Open your provider's VNC/console from their control panel
+2. Log in with `Administrator` / `Teddysun.com`
+3. A network configuration script runs **automatically** in the background
+4. Wait ~60 seconds for it to complete
+5. RDP is now ready — close VNC and connect normally
+
+This is a one-time step. All future logins use RDP.
+
+---
+
+## 💳 Pricing
+
+| Pack | Credits | Price | Per Install |
+|------|---------|-------|-------------|
+| Starter | 10 installs | $1 | $0.10 |
+| Basic | 30 installs | $3 | $0.10 |
+| Pro ⭐ | 50 installs | $5 | $0.10 |
+| Agency | 100 installs | $10 | $0.10 |
+
+- Credits **never expire**
+- No subscription, no monthly fees
+- One credit = one installation on one VPS
+- No IP or server locking — use one key across multiple servers
+
+---
+
+## 📋 Requirements
+
+- **Virtualization:** KVM (not OpenVZ)
+- **Architecture:** x86_64 or ARM64
+- **Disk:** 30 GB minimum (50 GB+ recommended)
+- **RAM:** 2 GB minimum (4 GB+ recommended for desktop editions)
+- **OS:** Any Linux distribution (Ubuntu, Debian, CentOS, etc.)
+- **Access:** Root SSH access
+- **Network:** Active internet connection (~4–8 GB download)
+
+---
+
+## 📚 Documentation
+
+Full documentation including provider-specific guides, troubleshooting, and post-install configuration:
+
+**[installer.cloudwavebd.com/docs/](https://installer.cloudwavebd.com/docs/)**
+
+- [General Installation Guide](https://installer.cloudwavebd.com/docs/)
+- [Hetzner Cloud Guide](https://installer.cloudwavebd.com/docs/)
+- [Contabo VPS Guide](https://installer.cloudwavebd.com/docs/)
+- [DigitalOcean Guide](https://installer.cloudwavebd.com/docs/)
+- [Connecting via RDP](https://installer.cloudwavebd.com/docs/)
+- [Troubleshooting](https://installer.cloudwavebd.com/docs/)
+
+---
+
+## 🔒 Security Notes
+
+- The default Administrator password (`Teddysun.com`) is **publicly known** — change it immediately after first login
+- RDP is exposed on port 3389 by default — consider restricting it to your IP via your provider's firewall
+- Windows is installed in evaluation mode; activate with a legitimate Microsoft license key for production use
+
+---
 
 ## 🆘 Support
 
-Telegram: @isMathias
+- 📧 Email: [support@cloudwavebd.com](mailto:support@cloudwavebd.com)
+- 🎫 Ticket: [cloudwavebd.com/billing/submitticket.php](https://cloudwavebd.com/billing/submitticket.php?step=2&deptid=1)
+- 🌐 Website: [cloudwavebd.com](https://cloudwavebd.com)
 
-------------------------------------------------------------------------
+---
 
-© 2026 KADER Installer
+## ⚖️ Legal
+
+- Windows is a trademark of **Microsoft Corporation**
+- This tool installs Windows in evaluation/trial mode — you are responsible for licensing compliance
+- By using this tool you agree to our [Terms of Service](https://cloudwavebd.com/terms-conditions/) and [Privacy Policy](https://cloudwavebd.com/privacy-policy/)
+- See our [Refund Policy](https://cloudwavebd.com/refund-policy/) for credit-related inquiries
+
+---
+
+© 2023–2026 [CloudWave Hosting](https://cloudwavebd.com). All rights reserved.
