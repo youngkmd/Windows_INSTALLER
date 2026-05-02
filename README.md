@@ -31,6 +31,9 @@ chmod +x ~/kader.sh
 ```bash
 ln -sf ~/kader.sh /usr/local/bin/k
 ```
+```bash
+k
+```
 
 ### 4. Follow the Prompts
 
